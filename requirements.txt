@@ -1,5 +1,9 @@
-langchain
-langchain-ollama
-langchain-core
+pyautogen
+autogen
+openai
+autogen-ext[ollama]
 pandas
-langgraph
+numpy
+seaborn
+matplotlib
+ipython
