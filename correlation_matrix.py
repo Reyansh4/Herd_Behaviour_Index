@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 data_path = Path("data/gold_layer/herd_mentality_events_gold_data_v1.csv").resolve()
+
+dashboards_dir = Path("dashboards")
+output_path = dashboards_dir / "correlation_matrix.png"
 data = pd.read_csv(data_path)
 
 # Select HBI dimensions
@@ -29,4 +32,8 @@ sns.heatmap(corr_matrix,
 
 plt.title('HBI Dimensions Correlation Matrix', fontsize=16, fontweight='bold', pad=20)
 plt.tight_layout()
+
+# Save to dashboards folder
+plt.savefig(output_path, dpi=300, bbox_inches='tight')
+print(f"Correlation matrix saved to: {output_path}")
 plt.show()
