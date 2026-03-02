@@ -1,5 +1,8 @@
 # Herd Behaviour Index (HBI)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](VERSION)
+
 **An Open Source Behavioral Intelligence Framework for Strategy, Risk, and Market Analysis.**
 
 ---
@@ -77,6 +80,9 @@ Dimension scores are normalized to 0–1, combined with fixed weights (e.g. M 0.
 ├── VERSION
 └── LICENSE                  # MIT
 ```
+
+**Documentation (PDF):** To build a single methodology PDF for clients, use [pandoc](https://pandoc.org/):  
+`pandoc docs/HBI_index_and_segment_matrix.md docs/data_enrichers_definitions.md -o HBI_methodology.pdf`
 
 ---
 

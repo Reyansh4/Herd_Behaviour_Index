@@ -2,6 +2,10 @@
 
 Thank you for your interest in contributing. This project is released under the MIT License. By contributing, you agree that your contributions will be licensed under the same terms.
 
+## Maintainers
+
+Project maintainers review pull requests and issues. If you have questions about contributing or maintenance, open a [GitHub Discussion](https://github.com/your-org/your-repo/discussions) or an issue. There is no formal maintainer list; the repository owner and designated collaborators handle reviews and releases.
+
 ## How to Contribute
 
 ### Reporting issues
