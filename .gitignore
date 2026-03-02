@@ -215,6 +215,7 @@ __marimo__/
 *.pem
 *.key
 secrets/
-# Optional: uncomment to keep full datasets local (sample_data/ remains tracked)
+# Full datasets stay local; only sample_data/ is tracked
 data/
+
 
