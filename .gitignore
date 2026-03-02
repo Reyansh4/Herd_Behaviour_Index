@@ -205,3 +205,16 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ---------------------------------------------------------------------------
+# HBI project: do not commit secrets or proprietary data
+# ---------------------------------------------------------------------------
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+secrets/
+# Optional: uncomment to keep full datasets local (sample_data/ remains tracked)
+data/
+
