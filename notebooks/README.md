@@ -12,7 +12,6 @@ This folder contains Jupyter notebooks for the HBI pipeline: data enrichment and
 - **`Feature_Engineering/`**
   - **Data_Preprocessing.ipynb** — Data loading, validation, and preprocessing for downstream steps.
   - **Segment_Matrix.ipynb** — Applies segment rules (S1–S5) to produce the `Segment` column from dimension scores.
-  - **HBI_Notebook.ipynb** — HBI calculation and related feature pipelines.
 
 ## Running the notebooks
 

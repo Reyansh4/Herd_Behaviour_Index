@@ -1,13 +1,16 @@
 # Methodology — Data & Index Logic
 
-This folder holds the **data and index logic** for the Herd Behaviour Index (HBI): how dimensions are defined, how the index is calculated, and how segments are assigned.
+This folder holds the **data and index logic** for the Herd Behaviour Index (HBI): how dimensions are defined and how segments are assigned.
 
 ## Contents
 
-- This README summarizes the calculation and segment rules.
+- **`segment.py`** — Canonical segment and Mode logic: `infer_mode(S)`, `classify_segment(M, S, I, D, mode)`, `assign_segment_row(row)`.
+- This README summarizes the segment rules.
 - Full definitions, score labels, and segment matrix are in the main docs:
   - [HBI index and segment matrix](../docs/HBI_index_and_segment_matrix.md)
   - [Data enrichers definitions](../docs/data_enrichers_definitions.md)
+
+Use from repo root: `from methodology.segment import classify_segment, infer_mode`. Run tests: `pytest tests/`.
 
 ## Dimension buckets
 
@@ -31,7 +34,9 @@ Segments are evaluated in a fixed order (most specific first). **Mode** is infer
 | **S1**  | Aligned Expansion     | M ≥ 4 AND S ≥ 4 AND D ≥ 4 AND I medium (4–6) |
 | **S5**  | Low-Energy Diffusion  | I low (1–3) **AND Mode = Diffusive** (S5 is not valid for Co-Present mode) |
 
-The **canonical** rules and reference implementation are in [HBI index and segment matrix](../docs/HBI_index_and_segment_matrix.md). The notebooks under `notebooks/Feature_Engineering/` apply these rules to produce the `Segment` column; Mode must be inferred from Spread (S) before applying S5.
+The **canonical** rules and reference implementation are in [HBI index and segment matrix](../docs/HBI_index_and_segment_matrix.md). Implementation: `methodology/segment.py`. The notebooks under `notebooks/Feature_Engineering/` can call these functions; Mode must be inferred from Spread (S) before applying S5.
+
+## Data requirements
 
 For **segment assignment** only, the input table must have numeric columns:
 
