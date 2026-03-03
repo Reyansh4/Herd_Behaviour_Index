@@ -4,7 +4,7 @@ Thank you for your interest in contributing. This project is released under the 
 
 ## Maintainers
 
-Project maintainers review pull requests and issues. If you have questions about contributing or maintenance, open a [GitHub Discussion](https://github.com/your-org/your-repo/discussions) or an issue. There is no formal maintainer list; the repository owner and designated collaborators handle reviews and releases.
+Project maintainers review pull requests and issues. If you have questions about contributing or maintenance, open a [GitHub Discussion](https://github.com/Reyansh4/Herd_Behaviour_Index/discussions) or an issue. There is no formal maintainer list; the repository owner and designated collaborators handle reviews and releases.
 
 ## How to Contribute
 
