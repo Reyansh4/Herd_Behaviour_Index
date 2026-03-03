@@ -1,7 +1,7 @@
 # Herd Behaviour Index (HBI)
 
-[![Tests](https://github.com/Reyansh4/Herd_Behaviour_Index_Research/actions/workflows/tests.yml/badge.svg)](https://github.com/Reyansh4/Herd_Behaviour_Index_Research/actions)
-[![codecov](https://codecov.io/github/Reyansh4/Herd_Behaviour_Index_Research/graph/badge.svg?token=TL0QZHI0G3)](https://codecov.io/github/Reyansh4/Herd_Behaviour_Index_Research)
+[![Tests](https://github.com/Reyansh4/Herd_Behaviour_Index/actions/workflows/tests.yml/badge.svg)](https://github.com/Reyansh4/Herd_Behaviour_Index_Research/actions)
+[![codecov](https://codecov.io/github/Reyansh4/Herd_Behaviour_Index/graph/badge.svg?token=TL0QZHI0G3)](https://codecov.io/github/Reyansh4/Herd_Behaviour_Index_Research)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](VERSION)
 
