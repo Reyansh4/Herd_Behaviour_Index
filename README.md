@@ -42,9 +42,9 @@ Events are classified into behavioral segments (S1–S5) using dimension buckets
 | **S2** | Emotion-Driven | I = High, D &lt; High |
 | **S3** | Volatile Expansion | M,S ≥ Medium, D = Low |
 | **S4** | Persistent Friction | I = High, D = High |
-| **S5** | Low-Energy Diffusion | I = Low |
+| **S5** | Low-Energy Diffusion | I = Low **and** Mode = Diffusive (not valid for Co-Present) |
 
-Unclassified events are allowed; the framework prioritizes signal integrity over forced coverage. Full rules and implementation details are in [`methodology/`](methodology/).
+Unclassified events are allowed; the framework prioritizes signal integrity over forced coverage. Full rules (including Mode inference from Spread) and implementation details are in [`methodology/`](methodology/) and [`docs/HBI_index_and_segment_matrix.md`](docs/HBI_index_and_segment_matrix.md).
 
 ### HBI Calculation
 
@@ -90,10 +90,14 @@ Dimension scores are normalized to 0–1, combined with fixed weights (e.g. M 0.
 
 ### Prerequisites
 
-- Python 3.10+
+- Python 3.10 or newer
 - pip (or your preferred package manager)
 
+Run Jupyter from the **repository root** so that notebook paths (e.g. `sample_data/`, `case_studies/`) resolve correctly.
+
 ### Setup
+
+Install dependencies from the repository root: `pip install -r requirements.txt`
 
 ```bash
 git clone <repository-url>
@@ -123,7 +127,7 @@ For running the enrichment pipeline with an LLM backend, install the client you 
    - Run the Data Enrichment notebook to obtain Event Type, Trigger, and M, S, I, D, R (requires configured LLM client)
    - Run Feature Engineering notebooks to compute HBI and Segment
 
-Paths in notebooks are relative to the notebook location; adjust if your repo root differs.
+Paths in notebooks are relative to the **repository root**: run Jupyter from the repo root (e.g. `jupyter notebook` or `jupyter lab` in the project directory) so that paths like `sample_data/sample_events.csv` and `case_studies/example_berlin_wall.csv` resolve correctly. If your working directory is different, set `data_path` (and any other paths) in the notebook to absolute paths or adjust relative paths accordingly.
 
 ---
 

@@ -16,10 +16,11 @@ This folder contains Jupyter notebooks for the HBI pipeline: data enrichment and
 
 ## Running the notebooks
 
-1. Install dependencies from the repo root: `pip install -r requirements.txt` (includes pandas, numpy, matplotlib, seaborn, python-dotenv, and the LLM client used for enrichment).
-2. Paths in notebooks are relative to the notebook file; adjust `data_path` if your repo layout differs.
-3. Use **sample data** for testing: point `data_path` to `sample_data/sample_events.csv` to avoid using proprietary data.
-4. Do not hardcode API keys or secrets; use environment variables and a local `.env` file (which is gitignored).
+1. **Install dependencies** from the repo root: `pip install -r requirements.txt` (includes pandas, numpy, matplotlib, seaborn, python-dotenv, and the LLM client used for enrichment).
+2. **Run from repository root** so that paths resolve correctly: start Jupyter from the project root (e.g. `jupyter notebook` or `jupyter lab`), and use paths relative to the repo root (e.g. `sample_data/sample_events.csv`, `case_studies/example_berlin_wall.csv`). If you open the notebook from a different directory, set `data_path` and other paths in the notebook to match your layout (e.g. absolute paths or `../../sample_data/sample_events.csv` relative to the notebook file).
+3. **Python version:** Use Python 3.10 or newer; the default kernel in the notebooks is Python 3.
+4. Use **sample data** for testing: point `data_path` to `sample_data/sample_events.csv` to avoid using proprietary data.
+5. Do not hardcode API keys or secrets; use environment variables and a local `.env` file (which is gitignored).
 
 ## Data paths
 

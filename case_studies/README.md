@@ -16,6 +16,11 @@ This folder is intended for **example applications** of the Herd Behaviour Index
 3. Use only **synthetic or publicly available data**; do not include proprietary or confidential event data.
 4. Submit via a pull request; see [CONTRIBUTING.md](../CONTRIBUTING.md).
 
-## Placeholder
+## Included case study
 
-No case studies are included in the initial v1.0 release. Community contributions are welcome to illustrate industry-specific or regional applications of the framework.
+- **Fall of the Berlin Wall (1989)** — End-to-end pipeline from **minimal input** to full HBI output.
+  - **Minimal input:** [`berlin_wall_minimal.csv`](berlin_wall_minimal.csv) — Year, Event Name, Continent only (the starting point).
+  - **Pipeline:** The same order of notebooks used in the repo: Event Description → Country → Data Enrichment (Event Type, Trigger, M,S,I,D,R) → Data Preprocessing (labels) → Segment Matrix (Mode, Segment).
+  - [`berlin_wall_risk_register.md`](berlin_wall_risk_register.md) — Narrative, pipeline table (which notebook adds which column), dimension scores, Mode (Diffusive), and Segment (S3 – Volatile Expansion).
+  - [`example_berlin_wall.csv`](example_berlin_wall.csv) — Single-row CSV with full HBI schema (result of running the pipeline).
+  - [`berlin_wall_case_study.ipynb`](berlin_wall_case_study.ipynb) — Shows minimal input, documents the five pipeline steps, loads the full result, verifies segment logic, and plots segment distribution and dimension charts. Run from repository root after `pip install -r requirements.txt`.

@@ -21,19 +21,17 @@ Each numeric dimension (M, S, I, D, R) uses a 1–10 scale. For segmentation, va
 
 ## Segment rules (summary)
 
-Segments are evaluated in a fixed order (most specific first). Events that match no rule remain **Unclassified**.
+Segments are evaluated in a fixed order (most specific first). **Mode** is inferred from Spread (S): S 1–3 → Co-Present, S 4–10 → Diffusive. Events that match no rule remain **Unclassified**.
 
-| Segment | Name                  | Condition (M, S, I, D in 1–10) |
-|---------|-----------------------|----------------------------------|
+| Segment | Name                  | Condition (M, S, I, D in 1–10; Mode from S) |
+|---------|-----------------------|-----------------------------------------------|
 | **S4**  | Persistent Friction   | I high (7–10) AND D high (7–10) |
-| **S2**  | Emotion-Driven        | I high (7–10) AND D not high    |
+| **S2**  | Emotion-Driven        | I high (7–10) AND D not high |
 | **S3**  | Volatile Expansion    | M ≥ 4 AND S ≥ 4 AND D low (1–3) |
 | **S1**  | Aligned Expansion     | M ≥ 4 AND S ≥ 4 AND D ≥ 4 AND I medium (4–6) |
-| **S5**  | Low-Energy Diffusion | I low (1–3); may be restricted by mode (see docs) |
+| **S5**  | Low-Energy Diffusion  | I low (1–3) **AND Mode = Diffusive** (S5 is not valid for Co-Present mode) |
 
-The reference implementation (Python) is in the [HBI segment matrix doc](../docs/HBI_index_and_segment_matrix.md). The notebooks under `notebooks/Feature_Engineering/` apply these rules to produce the `Segment` column.
-
-## Data requirements
+The **canonical** rules and reference implementation are in [HBI index and segment matrix](../docs/HBI_index_and_segment_matrix.md). The notebooks under `notebooks/Feature_Engineering/` apply these rules to produce the `Segment` column; Mode must be inferred from Spread (S) before applying S5.
 
 For **segment assignment** only, the input table must have numeric columns:
 
@@ -42,7 +40,7 @@ For **segment assignment** only, the input table must have numeric columns:
 - `Intensity(I)` or `I`
 - `Duration(D)` or `D`
 
-For **full pipeline** (enrichment then segments), the enrichment step expects at least: `Year`, `Event Name`, `Continent`, `Event Description`. Enrichment produces Event Type, Trigger, and M, S, I, D, R; then segment logic is applied.
+**Mode** is inferred from Spread (S): 1–3 → Co-Present, 4–10 → Diffusive. Segment S5 applies only when Mode = Diffusive; the canonical logic is in [docs/HBI_index_and_segment_matrix.md](../docs/HBI_index_and_segment_matrix.md).
 
 ## Unclassified events
 
