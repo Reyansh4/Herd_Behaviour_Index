@@ -38,7 +38,7 @@ def _is_medium_or_above(val: float) -> bool:
 def classify_segment(
     M: Union[int, float],
     S: Union[int, float],
-    I: Union[int, float],
+    intensity: Union[int, float],
     D: Union[int, float],
     mode: str,
 ) -> str:
@@ -49,7 +49,7 @@ def classify_segment(
     ----------
     M : Magnitude (1-10)
     S : Spread (1-10)
-    I : Intensity (1-10)
+    intensity : Intensity (1-10)
     D : Duration (1-10)
     mode : "Co-Present" or "Diffusive" (use infer_mode(S) if unknown)
 
@@ -57,7 +57,7 @@ def classify_segment(
     -------
     Segment string, e.g. "S1 - Aligned Expansion", or "Unclassified".
     """
-    m, s, i, d = float(M), float(S), float(I), float(D)
+    m, s, i, d = float(M), float(S), float(intensity), float(D)
 
     # S4 – Persistent Friction
     if _is_high(i) and _is_high(d):
@@ -100,7 +100,7 @@ def assign_segment_row(
     """
     M = row.get(m_col, row.get("M"))
     S = row.get(s_col, row.get("S"))
-    I = row.get(i_col, row.get("I"))
+    intensity_val = row.get(i_col, row.get("I"))
     D = row.get(d_col, row.get("D"))
     mode = infer_mode(S)
-    return classify_segment(M, S, I, D, mode)
+    return classify_segment(M, S, intensity_val, D, mode)

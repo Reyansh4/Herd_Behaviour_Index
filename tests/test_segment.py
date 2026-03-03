@@ -7,11 +7,11 @@ from methodology.segment import infer_mode, classify_segment, assign_segment_row
 def test_infer_mode(S, expected):
     assert infer_mode(S) == expected
 
-# --- Segment: S4 Persistent Friction (I high, D high) ---
-@pytest.mark.parametrize("M,S,I,D", [(5, 5, 8, 8), (1, 1, 7, 10)])
-def test_segment_s4(M, S, I, D):
-    assert classify_segment(M, S, I, D, "Diffusive") == "S4 - Persistent Friction"
-    assert classify_segment(M, S, I, D, "Co-Present") == "S4 - Persistent Friction"
+# --- Segment: S4 Persistent Friction (intensity high, D high) ---
+@pytest.mark.parametrize("M,S,intensity,D", [(5, 5, 8, 8), (1, 1, 7, 10)])
+def test_segment_s4(M, S, intensity, D):
+    assert classify_segment(M, S, intensity, D, "Diffusive") == "S4 - Persistent Friction"
+    assert classify_segment(M, S, intensity, D, "Co-Present") == "S4 - Persistent Friction"
 
 # --- Segment: S2 Emotion-Driven (I high, D not high) ---
 def test_segment_s2():
