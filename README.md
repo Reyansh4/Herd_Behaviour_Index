@@ -1,5 +1,7 @@
 # Herd Behaviour Index (HBI)
 
+[![Tests](https://github.com/Reyansh4/Herd_Behaviour_Index_Research/actions/workflows/tests.yml/badge.svg)](https://github.com/Reyansh4/Herd_Behaviour_Index_Research/actions)
+[![codecov](https://codecov.io/github/Reyansh4/Herd_Behaviour_Index_Research/graph/badge.svg?token=TL0QZHI0G3)](https://codecov.io/github/Reyansh4/Herd_Behaviour_Index_Research)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](VERSION)
 
@@ -46,10 +48,6 @@ Events are classified into behavioral segments (S1–S5) using dimension buckets
 
 Unclassified events are allowed; the framework prioritizes signal integrity over forced coverage. Full rules (including Mode inference from Spread) and implementation details are in [`methodology/`](methodology/) and [`docs/HBI_index_and_segment_matrix.md`](docs/HBI_index_and_segment_matrix.md).
 
-### HBI Calculation
-
-Dimension scores are normalized to 0–1, combined with fixed weights (e.g. M 0.3, S 0.25, I 0.25, D 0.2), and optionally scaled to a 1–10 index. The exact formula and reporting conventions are documented in [`docs/HBI_index_and_segment_matrix.md`](docs/HBI_index_and_segment_matrix.md) and [`methodology/`](methodology/).
-
 ---
 
 ## Repository Structure
@@ -59,8 +57,12 @@ Dimension scores are normalized to 0–1, combined with fixed weights (e.g. M 0.
 │   ├── HBI_index_and_segment_matrix.md
 │   ├── data_enrichers_definitions.md
 │   └── EDA_Strategy.md
-├── methodology/             # Data and index logic (calculation, segment rules)
-│   └── README.md
+├── methodology/             # Data and index logic (segment rules)
+│   ├── README.md
+│   └── segment.py          # Segment and Mode logic (canonical)
+├── tests/                  # Test suite and sample-data schema check
+│   ├── test_segment.py
+│   └── validate_sample_schema.py
 ├── case_studies/            # Example applications and use cases
 │   └── README.md
 ├── notebooks/               # Analysis and enrichment pipelines
@@ -107,7 +109,9 @@ source .venv/bin/activate   # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-For running the enrichment pipeline with an LLM backend, install the client you use (e.g. `ollama`) and set required environment variables (e.g. API base URL, API key) in a local `.env` file. Do not commit `.env` or any secrets.
+For running the **enrichment** pipeline with an LLM backend, set required environment variables (e.g. API base URL, API key) in a local `.env` file in the repo root. Do not commit `.env` or any secrets.
+
+**Run tests:** `pytest tests/` (validates segment logic and sample-data schema).
 
 ### Run with sample data
 
@@ -169,6 +173,6 @@ If you use HBI in research, products, or consulting, we ask that you acknowledge
 
 - **v1.0 (2026)** — Initial public release: framework docs, segment rules, enrichment and feature-engineering notebooks, sample data.  
 - **v1.x** — Community feedback: improved prompts, additional segment or dimension options, more case studies.  
-- **v2.x** — Possible extensions: API layer, optional weighting schemes, integration examples with common analytics platforms.
+- **v2.x** — Possible extensions: API layer, integration examples with common analytics platforms.
 
 See [CHANGELOG.md](CHANGELOG.md) for version history and [CONTRIBUTING.md](CONTRIBUTING.md) for how to propose changes.
